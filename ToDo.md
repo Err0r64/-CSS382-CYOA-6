@@ -1,91 +1,112 @@
 # ToDo – Choose Your Own Adventure Project
 
-## Phase 0: Setup (Do First)
-- [ ] Fork the repo and add all team members as contributors
-- [ ] Set up React + Vite project: `npm create vite@latest cyoa-app -- --template react`
-- [ ] Install dependencies: `npm install reactflow tailwindcss @tailwindcss/vite`
-- [ ] Verify local dev server runs: `npm run dev`
-- [ ] Write a conversion script to turn `cot-pages-ocr-v2/*.txt` + `cot-story-graph.mmd` into a single `cave-of-time.json`
-- [ ] Commit and push initial project scaffold
-
-## Phase 1: Landing Page
-- [ ] Create `LandingPage` component with title "Choose Your Own Adventure"
-- [ ] Add **[Author]** button → navigates to Author home
-- [ ] Add **[Reader]** button → navigates to Reader story list
-- [ ] Basic styling — visually striking, sets the tone for the app
-
-## Phase 2: Reader Mode
-- [ ] Create `StoryList` component — shows all available/published stories from localStorage + pre-loaded Cave of Time
-- [ ] Create `StoryReader` component — displays current node's text
-- [ ] Create `ChoiceButton` components — one per choice, navigates to target node on click
-- [ ] Add **[Go Back]** button (maintain a history stack)
-- [ ] Add **[Restart]** button
-- [ ] Handle terminal nodes (no choices = "The End" message with restart option)
-- [ ] Load `cave-of-time.json` as the default pre-loaded story
-- [ ] Basic styling — readable text, clear buttons, centered layout
-
-## Phase 3: Author Mode
-- [ ] Create `AuthorHome` component with two options: **[Upload JSON]** and **[Create]**
-- [ ] **[Upload JSON]**: file picker → parse JSON → open in graph editor
-- [ ] **[Create]**: open blank graph editor with a single empty start node
-- [ ] Create `GraphEditor` component — interactive graph for building/editing stories
-  - [ ] Display nodes and edges visually
-  - [ ] Click a node to open `NodeEditor` for that node
-  - [ ] Add new node button
-  - [ ] Connect nodes via edges (choices)
-  - [ ] Delete node or choice
-- [ ] Create `NodeEditor` component — edit node text and choices (add/remove/modify target)
-- [ ] Add **[Publish]** button — saves current story to localStorage, makes it available in Reader
-- [ ] Add **[Export JSON]** button — downloads story as `.json` file
-- [ ] Add **[New Story]** button to discard and start over
-
-## Phase 4: Graph Visualization
-- [ ] Integrate React Flow (or Cytoscape.js) to render story graph
-- [ ] Nodes display page/node ID and a snippet of text
-- [ ] Edges show choice text labels
-- [ ] Click a node to select it for editing (author mode) or jump to it (reader mode)
-- [ ] Color-code: start node (green), terminal/ending nodes (red), normal nodes (default)
-- [ ] Highlight current path in reader mode
-
-## Phase 5: Data Layer
-- [ ] Define final JSON schema for stories
-- [ ] Write `storage.js` helpers: `saveStory()`, `loadStories()`, `deleteStory()`
-- [ ] On app load: check localStorage, seed with `cave-of-time.json` if no stories exist
-- [ ] Write conversion script: `cot-pages-ocr-v2/*.txt` + `cot-story-graph.mmd` → `cave-of-time.json`
-- [ ] Validate imported JSON on upload (catch malformed files gracefully)
-
-## Phase 6: Integration & Polish
-- [ ] Connect Landing → Reader → StoryList → StoryReader flow
-- [ ] Connect Landing → Author → AuthorHome → GraphEditor → Publish → Reader flow
-- [ ] Shared state via React context (current story, history stack, mode)
-- [ ] Responsive layout (works on mobile for reader, desktop for author)
-- [ ] Error handling for malformed JSON imports
-- [ ] Clean up OCR noise in the Cave of Time demo data if needed
-
-## Phase 7: Deploy
-- [ ] Build production bundle: `npm run build`
-- [ ] Deploy to Netlify (connect GitHub repo) or GitHub Pages (`gh-pages` branch)
-- [ ] Verify deployed URL works end-to-end (land → read a story → author a story → publish)
-- [ ] Update README.md with:
-  - [ ] Deployed website URL
-  - [ ] GitHub repository URL
-  - [ ] Team member names (optional)
-
-## Phase 8: Documentation
-- [ ] Update Codebase.md to describe the web app architecture
-- [ ] Ensure all team members have commits visible on GitHub
-- [ ] Final review and cleanup
+**Team Members:** Alec Situ & Hyobin Yook
 
 ---
 
-## Assignment Checklist (from instructions)
-- [ ] All team members added to Canvas CYOA group
-- [ ] Repo forked, all members are contributors
-- [ ] Read Fork-Instructions.md ✅
-- [ ] Read AI-Instructions.md ✅
-- [ ] Read Codebase.md ✅
-- [ ] Brainstorm.md created ✅
-- [ ] ToDo.md created ✅
-- [ ] Project extended and deployed on public website
+## Phase 0: Setup ✅
+- [x] Fork repo and add team members as contributors
+- [x] Set up React + Vite project
+- [x] Install dependencies: React Flow, Tailwind, Dagre
+- [x] Verify local dev server runs
+- [x] Commit and push initial project scaffold
+
+---
+
+## Phase 1: Landing Page ✅
+- [x] Create `LandingPage` with title and Author / Reader buttons
+- [x] Add course credit line (CSS 382 — Alec Situ and Hyobin Yook)
+- [x] Improve credit text visibility in both dark and light mode
+
+---
+
+## Phase 2: Reader Mode ✅
+- [x] `StoryList` — shows all available stories
+- [x] `StoryReader` — displays node text and choices
+- [x] Go Back button (history stack)
+- [x] Restart button
+- [x] End screen at terminal nodes
+- [x] Pre-load Cave of Time demo story
+- [x] End-of-story visited path graph (horizontal, interactive)
+- [x] Path graph: Enlarge button for full-screen view
+- [x] Path graph: Align and Vertical/Horizontal toggle buttons
+- [x] Path graph: node handles adapt to layout direction
+- [x] All-time visited nodes persisted to localStorage across sessions
+- [x] Previous Path button — shows historically visited nodes any time during reading
+- [x] Jump back to any visited node from path graph
+
+---
+
+## Phase 3: Author Mode ✅
+- [x] `AuthorHome` — Upload JSON and Create New Story options
+- [x] `GraphEditor` — interactive graph editor
+- [x] Add / edit / delete nodes and choices
+- [x] Node editor panel (title, text, choices, ending flag)
+- [x] Node IDs hidden from users
+- [x] New node spawns at viewport center
+- [x] "Create new node" option inside choice target dropdown
+- [x] Click edge label to open source node's editor
+- [x] Selected node highlighted in gold
+- [x] Export JSON button
+- [x] Help modal with usage instructions
+- [x] Align button — resets node positions to auto-layout
+- [x] Vertical / Horizontal layout toggle
+- [x] Edge style cycle button (Curve / Straight / Smooth)
+- [x] Handle positions adapt to layout direction
+- [x] Zoom controls styled and theme-aware
+
+---
+
+## Phase 4: Graph Visualization ✅
+- [x] React Flow graph with dagre auto-layout
+- [x] Nodes color-coded: Start (green), Ending (red), Orphan (yellow), Normal (default)
+- [x] Edge labels show choice text
+- [x] Smooth / stepped / straight edge style options
+- [x] MiniMap with theme-aware colors
+- [x] Legend (Start / Ending / Orphan / Normal)
+
+---
+
+## Phase 5: Data Layer ✅
+- [x] JSON schema defined
+- [x] `storage.js` helpers: `saveStory`, `getStory`, `generateNodeId`, `getVisitedNodes`, `mergeVisitedNodes`
+- [x] On app load: seed localStorage with Cave of Time
+- [x] Validate imported JSON on upload
+
+---
+
+## Phase 6: Theme & Settings ✅
+- [x] `SettingsContext.jsx` — global state for theme and edge style
+- [x] Dark mode default; Light mode toggle in navbar
+- [x] Settings modal: Appearance (Dark/Light) + Graph Connection Style
+- [x] All graph elements (nodes, edges, controls, minimap, legend) theme-aware
+- [x] Navbar: filled diamond, sun/moon toggle, gear icon
+
+---
+
+## Phase 7: Deploy
+- [ ] Build production bundle: `npm run build`
+- [ ] Deploy to Netlify or GitHub Pages
+- [ ] Verify deployed URL end-to-end
+- [ ] Update README.md with deployed URL and repo URL
+
+---
+
+## Phase 8: Documentation
+- [x] Brainstorm.md created and updated
+- [x] ToDo.md created and updated
+- [x] CHANGELOG-v3.md created
+- [ ] Update Codebase.md to describe current architecture
+- [ ] Ensure all team members have commits visible on GitHub
+- [ ] README.md includes deployed URL + repo URL
+
+---
+
+## Assignment Checklist
+- [x] Repo forked, all members are contributors
+- [x] Brainstorm.md created
+- [x] ToDo.md created
+- [x] CHANGELOG-v3.md created
+- [ ] Project deployed on public website
 - [ ] All members have commits on GitHub
 - [ ] README.md includes deployed URL + repo URL
