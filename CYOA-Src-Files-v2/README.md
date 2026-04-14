@@ -4,15 +4,16 @@ A web-based tool for creating and playing branching "Choose Your Own Adventure" 
 
 ## Deployed Website
 
-> **URL**: _(add your deployed URL here after deploying)_
+> **URL**: https://strong-druid-1b2482.netlify.app
 
 ## GitHub Repository
 
-> **URL**: _(add your GitHub repo URL here)_
+> **URL**: https://github.com/Err0r64/CSS382-CYOA-6
 
 ## Team Members
 
-- _(add names here)_
+- Alec Situ
+- Hyobin Yook
 
 ---
 
@@ -45,6 +46,7 @@ A web-based tool for creating and playing branching "Choose Your Own Adventure" 
 - **React Router** — client-side routing with HashRouter (GitHub Pages compatible)
 
 ## Getting Started
+The following is only necessary if planning to deploy locally via Shell.
 
 ```bash
 # Install dependencies
@@ -59,17 +61,6 @@ npm run build
 
 The production build outputs to `dist/` — deploy this folder to any static host.
 
-## Deployment
-
-### Netlify (easiest)
-1. Go to [app.netlify.com/drop](https://app.netlify.com/drop)
-2. Drag the `dist/` folder onto the page
-3. Done — you'll get a public URL
-
-### GitHub Pages
-1. Install gh-pages: `npm install --save-dev gh-pages`
-2. Add to package.json scripts: `"deploy": "npm run build && npx gh-pages -d dist"`
-3. Run: `npm run deploy`
 
 ## Project Structure
 
